@@ -1,1 +1,2 @@
 FROM golang:1.8
+ENV GLIDE_VERSION=v0.12.3 
