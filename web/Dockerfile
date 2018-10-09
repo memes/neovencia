@@ -3,7 +3,8 @@
 FROM golang
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/golang/neovencia/web
+#ADD . /go/src/github.com/golang/neovencia/web
+COPY web /go/src/github.com/golang/neovencia
 
 # Build the web command inside the container.
 RUN go install github.com/golang/neovencia/web
