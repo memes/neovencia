@@ -1,5 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
+  args: ['install', '.']
   env: ['PROJECT_ROOT=web']
   dir: 'github_neudesic_novencia/web'
 - name: 'gcr.io/cloud-builders/docker'
