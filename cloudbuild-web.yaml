@@ -1,10 +1,6 @@
 steps:
-- name: 'gcr.io/cloud-builders/go'
-  args: ['install', '.']
-  env: ['PROJECT_ROOT=web']
-  dir: 'github_neudesic_novencia/web'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/web:$TAG_NAME', '.']
+  args: ['build', '--f web/Dockerfile --tag=gcr.io/$PROJECT_ID/web:$TAG_NAME', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['run', 'gcr.io/$PROJECT_ID/web:$TAG_NAME', 'go', 'test']
 images: ['gcr.io/$PROJECT_ID/web:$TAG_NAME']
