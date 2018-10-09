@@ -6,6 +6,8 @@ FROM golang
 #ADD . /go/src/github.com/golang/neovencia/web
 COPY web /go/src/github.com/golang/neovencia
 
+CMD ls /go/src/github.com/golang/neovencia/web
+
 # Build the web command inside the container.
 RUN go install github.com/golang/neovencia/web
 
