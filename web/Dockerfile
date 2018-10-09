@@ -2,17 +2,16 @@
 # and a workspace (GOPATH) configured at /go.
 FROM golang
 
-# Copy the local package files to the container's workspace.
-#ADD . /go/src/github.com/golang/neovencia/web
-COPY web /go/src/github.com/golang/neovencia
+WORKDIR /go/src
 
-RUN echo $(ls -1 /go/src/github.com/golang/neovencia/web)
+COPY web /go/src
 
-# Build the web command inside the container.
-RUN go install /go/src/github.com/golang/neovencia/web
+RUN echo $(ls -1 /go/src/web)
 
-# Run the web command by default when the container starts.
-ENTRYPOINT /go/bin/web
+# Check into our working directory, build our main.go
+RUN cd /go/src && go build -o main
 
 # Document that the service listens on port 8080.
 EXPOSE 8080
+
+ENTRYPOINT "./main"
