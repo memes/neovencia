@@ -22,7 +22,7 @@
                 "envVars": [
                   {
                     "name": "COMPONENT",
-                    "value": "frontend"
+                    "value": "web"
                   },
                   {
                     "name": "VERSION",
@@ -102,7 +102,7 @@
             "securityContext": null,
             "securityGroups": [],
             "sequence": null,
-            "stack": "frontend",
+            "stack": "web",
             "strategy": "",
             "targetSize": 1,
             "terminationGracePeriodSeconds": 30,
@@ -176,7 +176,7 @@
                   {
                     "envSource": null,
                     "name": "COMPONENT",
-                    "value": "frontend"
+                    "value": "web"
                   },
                   {
                     "envSource": null,
@@ -252,7 +252,7 @@
             "securityContext": null,
             "securityGroups": [],
             "sequence": null,
-            "stack": "frontend",
+            "stack": "web",
             "strategy": "",
             "targetSize": 8,
             "terminationGracePeriodSeconds": 30,
