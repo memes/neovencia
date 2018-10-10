@@ -157,7 +157,6 @@
         "notifications": [],
         "refId": "11",
         "requisiteStageRefIds": [
-          "7",
           "8"
         ],
         "type": "manualJudgment"
