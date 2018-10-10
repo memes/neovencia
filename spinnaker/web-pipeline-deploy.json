@@ -274,7 +274,7 @@
         "organization": "PROJECT",
         "pipeline": "61372c70-62af-422f-9565-e1975a758612",
         "registry": "gcr.io",
-        "repository": "PROJECT/github_neudesic_novencia",
+        "repository": "PROJECT/web",
         "status": [
           "successful"
         ],
