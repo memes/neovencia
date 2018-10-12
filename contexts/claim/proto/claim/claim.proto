@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package neovencia.claims;
+
+service ClaimsService {
+    rpc FileClaim(Claim) returns (Response) {}
+    rpc ClaimStatus(GetRequest) returns (Response) {}
+    rpc AdjustClaim(Adjustment) returns (Response) {}
+    rpc SumbitEstimate(Estimate) returns (Response) {}
+    rpc IssuePayment(Claim) returns (Response) {}
+}
+
+message GetRequest {}
+
+message Claim {
+    string id = 1;
+    string policyId = 2;
+    string dateOfIncident = 3; 
+    repeated Property properties = 4;
+}
+
+message Property {
+    string name = 1;
+    string description = 2;
+}
+
+message Adjustment {
+    string claimId = 1;
+    string adjusterName = 2;
+    string date = 3;
+    float amount = 4;
+    string reason = 5;
+}
+
+message Estimate {
+    Property property = 1;
+    string estimatorName = 2;
+    string date = 3;
+    float amount = 4;
+    string notes = 5;
+}
+
+message Response {
+    Claim claim = 1;
+    repeated Adjustment adjustments = 2;
+    repeated Estimate estimates = 3;
+}
