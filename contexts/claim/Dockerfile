@@ -19,6 +19,5 @@ WORKDIR /app
 COPY --from=builder /go/src/github.com/neudesic/neovencia/context/claim/claim .
 
 ENTRYPOINT ["./claim"]
-# arbitrary change to test build
 
 
