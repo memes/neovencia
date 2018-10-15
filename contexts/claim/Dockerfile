@@ -6,7 +6,7 @@ FROM golang:latest
 WORKDIR /go/src
 
 # Copy files
-COPY claim /go/src
+COPY contexts/claim /go/src
 
 # Check into our working directory, build our main.go
 RUN cd /go/src && go build -o main
