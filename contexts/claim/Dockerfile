@@ -1,18 +1,22 @@
-# Start from a Debian image with the latest version of Go installed
-# and a workspace (GOPATH) configured at /go.
-FROM golang:latest
+# Create build image and compile the service
+FROM golang:1.11.1 as builder
+RUN go get -u github.com/golang/dep/cmd/dep
 
-# Create a working directory
-WORKDIR /go/src
+WORKDIR /go/src/github.com/neudesic/neovencia/context/claim
 
-# Copy files
-COPY contexts/claim /go/src
+COPY . .
 
-# Check into our working directory, build our main.go
-RUN cd /go/src && go build -o main
+RUN dep init && dep ensure
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo .
 
-# Document that the service listens on port 9090.
-EXPOSE 9090
+# Create the runtime image 
+FROM alpine:latest
 
-# Container entry point
-ENTRYPOINT "./main"
+RUN apk --no-cache add ca-certificates
+
+RUN mkdir /app
+WORKDIR /app
+COPY --from=builder /go/src/github.com/neudesic/neovencia/context/claim/claim .
+
+ENTRYPOINT ["./claim"]
+
