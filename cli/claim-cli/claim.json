@@ -1,0 +1,15 @@
+{ 
+    "id": 1234,
+    "policyId": 1234,
+    "dateOfIncident": "JUL-06-2018",
+    "properties": [
+        {
+            "name": "house",
+            "description": "my primary residence"
+        },
+        {
+             "name": "rental",
+             "description": "my rental property"
+        }
+    ]
+}
